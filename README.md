@@ -88,48 +88,6 @@ python enhanced_training.py --dataset Salinas --skip-pretrained
 python enhanced_training.py --dataset HongHu --skip-pretrained
 ```
 
-## 📊 Model Architecture
-
-### Custom-Built GCViT Architecture
-- **Spectral Processing**: 3D convolution with BandDropout and Adaptive SE
-- **Custom Transformer Backbone**: Fully custom-built GCViT architecture (not pretrained)
-- **Enhanced LoRA Integration**: Custom LoRA implementation throughout the architecture
-- **Classification Head**: Efficient classification with LoRA-adapted layers
-
-### Enhanced LoRA Implementation
-- **Custom LoRA**: `EnhancedLoRALinear` with gate and residual mechanisms
-- **Rank**: 16 (configurable)
-- **Alpha**: 32 (configurable)
-- **Targets**: Attention layers, MLPs, and spectral processing
-- **Parameter Reduction**: Up to 71% compared to full fine-tuning
-- **Gate & Residual**: Optional sigmoid gating and residual connections
-
-## 🔬 Ablation Studies
-
-### LoRA Placement Analysis
-```bash
-# Run LoRA placement ablation study
-python lora_ablation_study_real_data.py --dataset Salinas
-```
-
-**Configurations:**
-- Spectral Only: LoRA in spectral processing only
-- + Attention: Add LoRA to attention layers  
-- + MLPs: Add LoRA to MLP layers
-- All Components: Full LoRA integration
-
-### Enhanced LoRA Component Analysis
-```bash
-# Run gate/residual ablation study
-python gate_residual_ablation_real_data.py --dataset LongKou
-```
-
-**Variants:**
-- Base LoRA: Standard LoRA implementation (`output = main + lora`)
-- + Residual only: Add residual connections (`output = main + lora + residual`)
-- + Gate only: Add sigmoid gating (`output = main + gate * lora`)
-- + Gate + Residual: Full enhanced LoRA (`output = main + gate * lora + residual`)
-
 ## 📈 Training Configuration
 
 ### Key Parameters
@@ -165,6 +123,7 @@ config = {
 - **Trainable Parameters**: ~74M (LoRA only)
 - **Parameter Reduction**: 71.10%
 - **Memory Usage**: ~971MB (training)
+- **Trainable Memory**: 280.71 MB
 - **Architecture**: Fully custom-built, no pretrained backbone required
 
 ## 🎯 Usage Examples
@@ -258,6 +217,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
