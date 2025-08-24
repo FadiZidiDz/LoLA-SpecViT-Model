@@ -18,8 +18,6 @@ A state-of-the-art hyperspectral image classification framework that implements 
 cls_SSFTT_IP/
 ├── enhanced_training.py          # Main training script with PEFT integration
 ├── improved_GCPE.py         # Core model architecture (Enhanced LoRA + modified GCViT)
-├── gate_residual_ablation_real_data.py  # Gate/Residual ablation study
-├── lora_ablation_study_real_data.py     # LoRA placement ablation study
 ├── get_cls_map.py               # Classification map generation
 ├── data/                        # Dataset storage
 │   ├── WHU-Hi-LongKou/         # LongKou dataset
@@ -211,6 +209,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
