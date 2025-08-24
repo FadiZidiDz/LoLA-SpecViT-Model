@@ -42,7 +42,7 @@ class LoRAAblationStudyRealData:
         self.train_config = {
             'batch_size': config.get('batch_size', 16),
             'learning_rate': config.get('learning_rate', 1e-3),
-            'epochs': config.get('epochs', 20),
+            'epochs': config.get('epochs', 100),
             'patience': config.get('patience', 8),
             'device': config.get('device', 'cuda' if torch.cuda.is_available() else 'cpu'),
             'weight_decay': config.get('weight_decay', 1e-4),
@@ -461,3 +461,4 @@ def main():
 
 if __name__ == "__main__":
     results = main()
+
