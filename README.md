@@ -5,7 +5,7 @@ A state-of-the-art hyperspectral image classification framework that implements 
 
 ## 🚀 Features
 
-- **Custom GCViT Architecture**: Fully custom-built transformer backbone (not pretrained)
+- **Custom GCViT Architecture**: Fully custom-built transformer backbone
 - **Enhanced LoRA Integration**: Custom LoRA implementation with gate and residual mechanisms
 - **Multi-Dataset Support**: LongKou, Salinas, HongHu, and  QUH-Qingyun hyperspectral datasets
 - **Efficient Training**: Parameter-efficient fine-tuning with up to 71% parameter reduction
@@ -17,7 +17,7 @@ A state-of-the-art hyperspectral image classification framework that implements 
 ```
 cls_SSFTT_IP/
 ├── enhanced_training.py          # Main training script with PEFT integration
-├── improved_GCPE_old.py         # Core model architecture (Enhanced LoRA + GCViT)
+├── improved_GCPE.py         # Core model architecture (Enhanced LoRA + modified GCViT)
 ├── gate_residual_ablation_real_data.py  # Gate/Residual ablation study
 ├── lora_ablation_study_real_data.py     # LoRA placement ablation study
 ├── get_cls_map.py               # Classification map generation
@@ -258,6 +258,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
