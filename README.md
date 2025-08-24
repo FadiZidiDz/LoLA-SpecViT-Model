@@ -2,8 +2,6 @@
 
 A state-of-the-art hyperspectral image classification framework that implements a **custom-built Global Context Vision Transformer (GCViT) architecture** with **enhanced Low-Rank Adaptation (LoRA)** for efficient and accurate classification of hyperspectral data.
 
-> **⚠️ Important Clarification**: This repository implements a **fully custom-built GCViT architecture**, NOT a pretrained model. The architecture is designed from scratch for hyperspectral image classification. Pretrained weights are optional and only used for initialization if available.
-
 ## 🚀 Features
 
 - **Custom GCViT Architecture**: Fully custom-built transformer backbone (not pretrained)
@@ -259,3 +257,4 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
