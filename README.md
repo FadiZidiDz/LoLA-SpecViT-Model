@@ -7,7 +7,7 @@ A state-of-the-art hyperspectral image classification framework that implements 
 
 - **Custom GCViT Architecture**: Fully custom-built transformer backbone (not pretrained)
 - **Enhanced LoRA Integration**: Custom LoRA implementation with gate and residual mechanisms
-- **Multi-Dataset Support**: LongKou, Salinas, HongHu, and other hyperspectral datasets
+- **Multi-Dataset Support**: LongKou, Salinas, HongHu, and  QUH-Qingyun hyperspectral datasets
 - **Efficient Training**: Parameter-efficient fine-tuning with up to 71% parameter reduction
 - **Comprehensive Ablation Studies**: Systematic analysis of LoRA placement and components
 - **Professional Evaluation**: OA, AA, Kappa metrics with detailed performance analysis
@@ -258,5 +258,6 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
