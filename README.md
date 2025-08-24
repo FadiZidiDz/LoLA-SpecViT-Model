@@ -157,13 +157,7 @@ python enhanced_training.py --batch_size 16
 # Enable gradient accumulation
 python enhanced_training.py --gradient_accumulation_steps 2
 ```
-
-**2. Model Architecture Understanding**
-- **This is NOT a pretrained GCViT model** - it's a custom-built architecture
-- **Pretrained weights are optional** - only used for initialization if available
-- **Use `--skip-pretrained`** for training the custom model from scratch
-
-**3. Dataset Loading Issues**
+**2. Dataset Loading Issues**
 - Ensure datasets are in the `data/` folder
 - Check file permissions and paths
 - Verify dataset format compatibility
@@ -217,6 +211,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
