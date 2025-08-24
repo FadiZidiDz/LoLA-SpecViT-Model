@@ -58,7 +58,7 @@ pip install transformers peft wandb scikit-learn matplotlib seaborn tqdm
 
 ## 🚀 Quick Start
 
-### Option 1: Training with Optional Pretrained Weight Initialization
+### Option 1: Training with Optional Pretrained Weight Initialization (Recommended)
 
 **Note**: The model architecture is **fully custom-built**. Pretrained weights are only used for initialization if available:
 
@@ -73,7 +73,7 @@ python enhanced_training.py --dataset Salinas --hf_backbone nvidia/GCViT
 python enhanced_training.py --dataset HongHu --hf_backbone nvidia/GCViT
 ```
 
-### Option 2: Training from Scratch (Recommended)
+### Option 2: Training from Scratch 
 
 **The model is designed to work without pretrained weights**:
 
@@ -258,6 +258,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
