@@ -1,11 +1,13 @@
-# Hyperspectral Image Classification with Enhanced LoRA and GCViT
+# Hyperspectral Image Classification with Custom Enhanced LoRA and GCViT Architecture
 
-A state-of-the-art hyperspectral image classification framework that combines Global Context Vision Transformer (GCViT) with enhanced Low-Rank Adaptation (LoRA) for efficient and accurate classification of hyperspectral data.
+A state-of-the-art hyperspectral image classification framework that implements a **custom-built Global Context Vision Transformer (GCViT) architecture** with **enhanced Low-Rank Adaptation (LoRA)** for efficient and accurate classification of hyperspectral data.
+
+> **⚠️ Important Clarification**: This repository implements a **fully custom-built GCViT architecture**, NOT a pretrained model. The architecture is designed from scratch for hyperspectral image classification. Pretrained weights are optional and only used for initialization if available.
 
 ## 🚀 Features
 
+- **Custom GCViT Architecture**: Fully custom-built transformer backbone (not pretrained)
 - **Enhanced LoRA Integration**: Custom LoRA implementation with gate and residual mechanisms
-- **GCViT Backbone**: Global Context Vision Transformer for robust feature extraction
 - **Multi-Dataset Support**: LongKou, Salinas, HongHu, and other hyperspectral datasets
 - **Efficient Training**: Parameter-efficient fine-tuning with up to 71% parameter reduction
 - **Comprehensive Ablation Studies**: Systematic analysis of LoRA placement and components
@@ -57,48 +59,51 @@ pip install transformers peft wandb scikit-learn matplotlib seaborn tqdm
 
 ## 🚀 Quick Start
 
-### Option 1: Training with Pretrained GCViT (Recommended)
+### Option 1: Training with Optional Pretrained Weight Initialization
 
-If you have access to the pretrained GCViT model:
+**Note**: The model architecture is **fully custom-built**. Pretrained weights are only used for initialization if available:
 
 ```bash
-# Train on LongKou dataset
+# Train with pretrained weight initialization (if available)
 python enhanced_training.py --dataset LongKou --hf_backbone nvidia/GCViT
 
-# Train on Salinas dataset  
+# Train with pretrained weight initialization (if available)
 python enhanced_training.py --dataset Salinas --hf_backbone nvidia/GCViT
 
-# Train on HongHu dataset
+# Train with pretrained weight initialization (if available)
 python enhanced_training.py --dataset HongHu --hf_backbone nvidia/GCViT
 ```
 
-### Option 2: Training from Scratch (No Pretrained Model)
+### Option 2: Training from Scratch (Recommended)
 
-If you don't have access to pretrained weights:
+**The model is designed to work without pretrained weights**:
 
 ```bash
-# Train on LongKou dataset (from scratch)
+# Train on LongKou dataset (from scratch - recommended)
 python enhanced_training.py --dataset LongKou --skip-pretrained
 
-# Train on Salinas dataset (from scratch)
+# Train on Salinas dataset (from scratch - recommended)
 python enhanced_training.py --dataset Salinas --skip-pretrained
 
-# Train on HongHu dataset (from scratch)
+# Train on HongHu dataset (from scratch - recommended)
 python enhanced_training.py --dataset HongHu --skip-pretrained
 ```
 
 ## 📊 Model Architecture
 
-### Enhanced LoRA Components
+### Custom-Built GCViT Architecture
 - **Spectral Processing**: 3D convolution with BandDropout and Adaptive SE
-- **Multi-Scale Transformer**: GCViT backbone with enhanced LoRA integration
+- **Custom Transformer Backbone**: Fully custom-built GCViT architecture (not pretrained)
+- **Enhanced LoRA Integration**: Custom LoRA implementation throughout the architecture
 - **Classification Head**: Efficient classification with LoRA-adapted layers
 
-### LoRA Configuration
+### Enhanced LoRA Implementation
+- **Custom LoRA**: `EnhancedLoRALinear` with gate and residual mechanisms
 - **Rank**: 16 (configurable)
 - **Alpha**: 32 (configurable)
 - **Targets**: Attention layers, MLPs, and spectral processing
 - **Parameter Reduction**: Up to 71% compared to full fine-tuning
+- **Gate & Residual**: Optional sigmoid gating and residual connections
 
 ## 🔬 Ablation Studies
 
@@ -110,21 +115,21 @@ python lora_ablation_study_real_data.py --dataset Salinas
 
 **Configurations:**
 - Spectral Only: LoRA in spectral processing only
-- + Attention: Add LoRA to attention layers
+- + Attention: Add LoRA to attention layers  
 - + MLPs: Add LoRA to MLP layers
 - All Components: Full LoRA integration
 
-### Gate and Residual Analysis
+### Enhanced LoRA Component Analysis
 ```bash
 # Run gate/residual ablation study
 python gate_residual_ablation_real_data.py --dataset LongKou
 ```
 
 **Variants:**
-- Base LoRA: Standard LoRA implementation
-- + Residual only: Add residual connections
-- + Gate only: Add sigmoid gating
-- + Gate + Residual: Full enhanced LoRA
+- Base LoRA: Standard LoRA implementation (`output = main + lora`)
+- + Residual only: Add residual connections (`output = main + lora + residual`)
+- + Gate only: Add sigmoid gating (`output = main + gate * lora`)
+- + Gate + Residual: Full enhanced LoRA (`output = main + gate * lora + residual`)
 
 ## 📈 Training Configuration
 
@@ -157,10 +162,11 @@ config = {
 - **Kappa Coefficient**: Agreement measure
 
 ### Parameter Efficiency
-- **Total Parameters**: ~254M (full model)
+- **Total Parameters**: ~254M (custom-built model)
 - **Trainable Parameters**: ~74M (LoRA only)
 - **Parameter Reduction**: 71.10%
 - **Memory Usage**: ~971MB (training)
+- **Architecture**: Fully custom-built, no pretrained backbone required
 
 ## 🎯 Usage Examples
 
@@ -194,11 +200,10 @@ python enhanced_training.py --batch_size 16
 python enhanced_training.py --gradient_accumulation_steps 2
 ```
 
-**2. Model Loading Errors**
-```bash
-# Use skip-pretrained for training from scratch
-python enhanced_training.py --skip-pretrained
-```
+**2. Model Architecture Understanding**
+- **This is NOT a pretrained GCViT model** - it's a custom-built architecture
+- **Pretrained weights are optional** - only used for initialization if available
+- **Use `--skip-pretrained`** for training the custom model from scratch
 
 **3. Dataset Loading Issues**
 - Ensure datasets are in the `data/` folder
@@ -239,9 +244,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- GCViT architecture from NVIDIA
+- GCViT architecture design inspired by NVIDIA's work
 - LoRA implementation inspired by Microsoft's PEFT library
 - Hyperspectral datasets from WHU-Hi and Salinas
+- **Note**: This implementation uses a fully custom-built architecture, not pretrained models
 
 ## 📞 Support
 
