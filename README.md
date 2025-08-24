@@ -1,4 +1,5 @@
-# Hyperspectral Image Classification with Custom Enhanced LoRA and GCViT Architecture
+# LoLA-SpecViT: Local Attention SwiGLU Vision Transformer with LoRA for Hyperspectral Imaging
+
 
 A state-of-the-art hyperspectral image classification framework that implements a **custom-built Global Context Vision Transformer (GCViT) architecture** with **enhanced Low-Rank Adaptation (LoRA)** for efficient and accurate classification of hyperspectral data.
 
@@ -257,4 +258,5 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
