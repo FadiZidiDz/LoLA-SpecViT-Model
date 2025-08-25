@@ -171,9 +171,9 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @article{your_paper_2024,
-  title={Enhanced LoRA for Hyperspectral Image Classification with GCViT},
-  author={Your Name},
-  journal={Pattern Recognition},
+  title={LoLA-SpecViT: Local Attention SwiGLU Vision Transformer with LoRA for Hyperspectral Imaging},
+  author={},
+  journal={},
   year={2024}
 }
 ```
@@ -209,6 +209,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
