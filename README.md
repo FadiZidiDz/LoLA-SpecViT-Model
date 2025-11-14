@@ -170,12 +170,17 @@ python enhanced_training.py --gradient_accumulation_steps 2
 If you use this code in your research, please cite:
 
 ```bibtex
-@article{your_paper_2024,
-  title={LoLA-SpecViT: Local Attention SwiGLU Vision Transformer with LoRA for Hyperspectral Imaging},
-  author={},
-  journal={},
-  year={2024}
+@article{zidi2025LoLA-SpecViT,
+  title        = {LoLA-SpecViT: Local Attention SwiGLU Vision Transformer with LoRA for Hyperspectral Imaging},
+  author       = {Zidi, Fadi Abdeladhim and Boukhari, Djamel Eddine and Sellam, Abdellah Zakaria and Ouafi, Abdelkrim and Distante, Cosimo and Bekhouche, Salah Eddine and Taleb-Ahmed, Abdelmalik},
+  journal      = {International Journal of Applied Earth Observation and Geoinformation},
+  volume       = {144},
+  pages        = {104924},
+  year         = {2025},
+  doi          = {10.1016/j.jag.2025.104924},
+  url          = {https://www.sciencedirect.com/science/article/pii/S1569843225005710}
 }
+
 ```
 
 ## 🤝 Contributing
@@ -209,6 +214,7 @@ For questions and support:
 ---
 
 **Note**: This framework is designed for research and educational purposes. For production use, please ensure proper validation and testing on your specific datasets.
+
 
 
 
